@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ead">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.EAD">
+        <activity
+            android:name=".ReservationSummary"
+            android:exported="true" />
+        <activity
+            android:name=".ReservationHistory"
+            android:exported="true" />
+        <activity
+            android:name=".CreateReservation"
+            android:exported="true" />
+        <activity
+            android:name=".UpdateReservation"
+            android:exported="true" />
+        <activity
+            android:name=".ActiveReservations"
+            android:exported="true" />
+        <activity
+            android:name=".Profile"
+            android:exported="true" />
+        <activity
+            android:name=".Dashboard"
+            android:exported="true" />
+        <activity
+            android:name=".Registation"
+            android:exported="true" />
+        <activity
+            android:name=".Login"
+            android:exported="true" />
+    </application>
+
+</manifest>
