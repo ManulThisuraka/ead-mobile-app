@@ -11,4 +11,5 @@
     <color name="background">#0f172a</color>
     <color name="lightgrey">#E8EBEC</color>
     <color name="grey">#253A4B</color>
+    <color name="delete_btn">#E39B9D</color>
 </resources>
