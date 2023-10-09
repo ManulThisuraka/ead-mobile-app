@@ -8,8 +8,8 @@
         <string name="already_in">Already In ?</string>
         //sign in and sign up, edit profile, delete
         <string name="username">Username</string>
-        <string name="firstname">First Name</string>
-        <string name="lastname">Last Name</string>
+        <string name="firstname">Name</string>
+        <string name="lastname">NIC</string>
         <string name="email">Email</string>
         <string name="addphoto">Add Photo</string>
         <string name="Reserve">Reserve</string>
