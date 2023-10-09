@@ -118,14 +118,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/AIdonorname"
+        android:id="@+id/Cdate"
         android:layout_width="329dp"
         android:layout_height="54dp"
         android:layout_marginTop="52dp"
         android:background="@drawable/input_field"
         android:backgroundTint="@color/white"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="date"
         android:textColor="@color/black"
         android:textColorHint="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
@@ -133,8 +133,8 @@
         app:layout_constraintTop_toBottomOf="@+id/include"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <EditText
-        android:id="@+id/AIdonorname2"
+    <Spinner
+        android:id="@+id/Cfrom"
         android:layout_width="329dp"
         android:layout_height="54dp"
         android:layout_marginTop="148dp"
@@ -147,10 +147,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        android:spinnerMode="dropdown"/>
 
-    <EditText
-        android:id="@+id/AIdonorname3"
+    <Spinner
+        android:id="@+id/Cto"
         android:layout_width="329dp"
         android:layout_height="54dp"
         android:layout_marginTop="252dp"
@@ -163,10 +164,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        android:spinnerMode="dropdown"/>
 
-    <EditText
-        android:id="@+id/AIdonorname4"
+    <Spinner
+        android:id="@+id/Cschedule"
         android:layout_width="329dp"
         android:layout_height="54dp"
         android:layout_marginTop="352dp"
@@ -180,17 +182,18 @@
         app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        android:spinnerMode="dropdown"/>
 
     <EditText
-        android:id="@+id/AIdonorname5"
+        android:id="@+id/Ccount"
         android:layout_width="329dp"
         android:layout_height="54dp"
         android:layout_marginTop="456dp"
         android:background="@drawable/input_field"
         android:backgroundTint="@color/white"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textColor="@color/black"
         android:textColorHint="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
@@ -200,12 +203,13 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/mSignUpBtn"
+        android:id="@+id/BtnConfirm"
         android:layout_width="162dp"
         android:layout_height="53dp"
         android:layout_marginBottom="76dp"
         android:backgroundTint="@color/toolbar"
         android:fontFamily="sans-serif-black"
+        android:onClick="Reserve"
         android:text="@string/Reserve"
         android:textAllCaps="false"
         android:textColor="@color/white"

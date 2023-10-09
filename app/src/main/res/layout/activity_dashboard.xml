@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <ImageButton
-        android:id="@+id/btnService"
+        android:id="@+id/btnNew"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="120dp"
@@ -94,8 +94,8 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/dash_img_profile"
-            app:layout_constraintBottom_toBottomOf="@+id/btnService"
-            app:layout_constraintEnd_toStartOf="@+id/btnService"
+            app:layout_constraintBottom_toBottomOf="@+id/btnNew"
+            app:layout_constraintEnd_toStartOf="@+id/btnNew"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -131,9 +131,9 @@
         android:text="@string/newR"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/textView10"
-        app:layout_constraintEnd_toEndOf="@+id/btnService"
+        app:layout_constraintEnd_toEndOf="@+id/btnNew"
         app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="@+id/btnService" />
+        app:layout_constraintStart_toStartOf="@+id/btnNew" />
 
     <TextView
         android:id="@+id/textView13"
