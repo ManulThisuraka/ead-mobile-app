@@ -8,8 +8,8 @@
         <string name="already_in">Already In ?</string>
         //sign in and sign up, edit profile, delete
         <string name="username">Username</string>
-        <string name="firstname">First Name</string>
-        <string name="lastname">Last Name</string>
+        <string name="firstname">Name</string>
+        <string name="lastname">NIC</string>
         <string name="email">Email</string>
         <string name="addphoto">Add Photo</string>
         <string name="Reserve">Reserve</string>
@@ -65,14 +65,4 @@
         <string name="phone">Phone:</string>
         <string name="login">Login</string>
         <string name="create_an_account">Create an account ?</string>
-        <string name="date">Date</string>
-        <string name="to">To</string>
-        <string name="from">From</string>
-        <string name="select_train_schedule">Select Train Schedule</string>
-        <string name="seat_count">Seat Count</string>
-    <string name="update_reservation">Reservation Details</string>
-        <string name="train_schedule">Train Schedule</string>
-        <string name="cancel">Cancel</string>
-        <string name="back">Back</string>
-        <string name="confirmation">Confirmation</string>
-</resources>
+    </resources>
