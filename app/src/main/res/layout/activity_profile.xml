@@ -101,7 +101,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/AIdonorname"
+            android:id="@+id/Cdate"
             android:layout_width="329dp"
             android:layout_height="54dp"
             android:layout_marginTop="92dp"
@@ -166,11 +166,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AIdonorname"
+            app:layout_constraintTop_toBottomOf="@+id/Cdate"
             tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/mSignUpBtn"
+        android:id="@+id/BtnConfirm"
         android:layout_width="162dp"
         android:layout_height="53dp"
         android:layout_marginBottom="44dp"

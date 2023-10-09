@@ -70,9 +70,25 @@
         <string name="from">From</string>
         <string name="select_train_schedule">Select Train Schedule</string>
         <string name="seat_count">Seat Count</string>
-    <string name="update_reservation">Reservation Details</string>
+        <string name="update_reservation">Reservation Details</string>
         <string name="train_schedule">Train Schedule</string>
         <string name="cancel">Cancel</string>
         <string name="back">Back</string>
         <string name="confirmation">Confirmation</string>
+
+        <string-array name="city_array">
+                <item></item>
+                <item>Fort</item>
+                <item>Kandy</item>
+                <item>Galle</item>
+                <item>Jaffna</item>
+        </string-array>
+
+        <string-array name="time_array">
+                <item></item>
+                <item>8.30</item>
+                <item>12.30</item>
+                <item>4.30</item>
+        </string-array>
+
 </resources>

@@ -118,7 +118,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/AIdonorname"
+        android:id="@+id/Cdate"
         android:layout_width="329dp"
         android:layout_height="54dp"
         android:layout_marginTop="52dp"
@@ -135,7 +135,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/AIdonorname2"
+        android:id="@+id/Cfrom"
         android:layout_width="329dp"
         android:layout_height="54dp"
         android:layout_marginTop="148dp"
@@ -152,7 +152,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/AIdonorname3"
+        android:id="@+id/Cto"
         android:layout_width="329dp"
         android:layout_height="54dp"
         android:layout_marginTop="252dp"
@@ -169,7 +169,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/AIdonorname4"
+        android:id="@+id/Cschedule"
         android:layout_width="329dp"
         android:layout_height="54dp"
         android:layout_marginTop="352dp"
@@ -187,7 +187,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/AIdonorname5"
+        android:id="@+id/Ccount"
         android:layout_width="329dp"
         android:layout_height="54dp"
         android:layout_marginTop="456dp"
@@ -205,7 +205,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/mSignUpBtn"
+        android:id="@+id/BtnConfirm"
         android:layout_width="162dp"
         android:layout_height="53dp"
         android:layout_marginBottom="72dp"
@@ -223,7 +223,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/mSignUpBtn3"
+        android:id="@+id/BtnBack"
         android:layout_width="162dp"
         android:layout_height="53dp"
         android:layout_marginBottom="72dp"
