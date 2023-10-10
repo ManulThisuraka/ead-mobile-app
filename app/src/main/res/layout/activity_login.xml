@@ -144,8 +144,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="500dp"
-        android:layout_height="500dp"
+        android:layout_width="236dp"
+        android:layout_height="227dp"
         app:layout_constraintBottom_toTopOf="@+id/Email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -9,14 +9,14 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 public class Dashboard extends AppCompatActivity {
-
+Button logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
         ImageButton btnNew = findViewById(R.id.btnNew);
-//        ImageButton btnService = findViewById(R.id.btnService);
+        ImageButton btnProfile = findViewById(R.id.btnProfile);
 //        ImageButton btnFunds = findViewById(R.id.btnFunds);
 //        ImageButton btnInventory = findViewById(R.id.btnInventory);
 //        Button logout = findViewById(R.id.btnLogout1);
@@ -44,15 +44,25 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-//        btnService.setOnClickListener(new View.OnClickListener()
-//
-//        {
-//            @Override
-//            public void onClick (View view){
-//                Intent intent = new Intent(HomeDashboard.this, AddVolunteering.class);
-//                startActivity(intent);
-//            }
-//        });
+        // Logout button
+        logout = findViewById(R.id.btnLogout1);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent home = new Intent(Dashboard.this, Login.class);
+                startActivity(home);
+            }
+        });
+
+        btnProfile.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick (View view){
+                Intent intent = new Intent(Dashboard.this, Profile.class);
+                startActivity(intent);
+            }
+        });
 //
 //        btnFunds.setOnClickListener(new View.OnClickListener()
 //
