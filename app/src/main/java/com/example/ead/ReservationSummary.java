@@ -19,12 +19,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.ead.constants.Constants;
 import com.example.ead.constants.HttpsTrustManager;
 import com.example.ead.models.Reservation;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -103,12 +105,18 @@ public class ReservationSummary extends AppCompatActivity {
             //date = extras.getString("Rdate");6523caa7f73de7a9bfb57636
             date = "2023-10-09T17:22:35.391Z";
             NIC = "987654123V";
-            scheduleID = "652539c38b5fd69f93df826f";
+            scheduleID = "652555fe7a723656e544007e";
             count = 2;
         }
     }
 
     private void addReservationAPI(String date, String NIC, String scheduleID, int count) throws JSONException {
+
+            date = "2023-10-09T17:22:35.391Z";
+            NIC = "987654123V";
+            scheduleID = "652555fe7a723656e544007e";
+            count = 2;
+
             HttpsTrustManager.allowAllSSL();
             JSONObject jsonObject = new JSONObject();
             RequestQueue mRequestQueue = Volley.newRequestQueue(this);
@@ -119,7 +127,6 @@ public class ReservationSummary extends AppCompatActivity {
             jsonObject.put("nic", NIC);
             jsonObject.put("reservationDate", date);
             jsonObject.put("reserveCount", count);
-
 
             final String mRequestBody = jsonObject.toString();
             Log.d("Request JSON", mRequestBody);
@@ -136,13 +143,38 @@ public class ReservationSummary extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                try {
                 // Handle the error here
                 String errorMessage = error.getMessage();
                 Toast.makeText(getApplicationContext(), "Error: " + errorMessage, Toast.LENGTH_SHORT).show();
                 error.printStackTrace();
-                Log.e("LOG_VOLLEY_ERROR", error.toString());
+                Log.e("LOG_VOLLEY_ERROR_1", error.toString());
+                Log.e("LOG_VOLLEY_ERROR_2", String.valueOf(error.networkResponse));
+
+                String body;
+                //get status code here
+                final String statusCode = String.valueOf(error.networkResponse.statusCode);
+
+                    body = new String(error.networkResponse.data,"UTF-8");
+                    Log.e("LOG_VOLLEY_ERROR_A", statusCode);
+                    Log.e("LOG_VOLLEY_ERROR_B", body);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> param = new HashMap<String, String>();
+                return param;
+            }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+        };
         mRequestQueue.add(jsonObjReq);
     }
 }
