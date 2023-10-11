@@ -1,20 +1,19 @@
 package com.example.ead.models;
 
-public class Reservation {
+public class CardModel {
 
     private String date;
     private String from;
     private String to;
-    private String schedule;
     private int count;
 
-    public Reservation() {}
+    public CardModel() {
+    }
 
-    public Reservation(String date, String from, String to, String schedule, int count) {
+    public CardModel(String date, String from, String to, int count) {
         this.date = date;
         this.from = from;
         this.to = to;
-        this.schedule = schedule;
         this.count = count;
     }
 
@@ -40,14 +39,6 @@ public class Reservation {
 
     public void setTo(String to) {
         this.to = to;
-    }
-
-    public String getSchedule() {
-        return schedule;
-    }
-
-    public void setSchedule(String schedule) {
-        this.schedule = schedule;
     }
 
     public int getCount() {

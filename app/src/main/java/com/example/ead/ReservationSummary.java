@@ -43,7 +43,7 @@ public class ReservationSummary extends AppCompatActivity {
     String scheduleID;
     int count;
 
-    Reservation reservationobj;
+    //Reservation reservationobj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,8 +104,8 @@ public class ReservationSummary extends AppCompatActivity {
 
             //date = extras.getString("Rdate");6523caa7f73de7a9bfb57636
             date = "2023-10-09T17:22:35.391Z";
-            NIC = "987654123V";
-            scheduleID = "652555fe7a723656e544007e";
+            NIC = "985632145v";
+            scheduleID = "6526e0ed88771d0cb06106a6";
             count = 2;
         }
     }
@@ -113,8 +113,8 @@ public class ReservationSummary extends AppCompatActivity {
     private void addReservationAPI(String date, String NIC, String scheduleID, int count) throws JSONException {
 
             date = "2023-10-09T17:22:35.391Z";
-            NIC = "987654123V";
-            scheduleID = "652555fe7a723656e544007e";
+            NIC = "985632145v";
+            scheduleID = "6526e0ed88771d0cb06106a6";
             count = 2;
 
             HttpsTrustManager.allowAllSSL();
@@ -129,7 +129,7 @@ public class ReservationSummary extends AppCompatActivity {
             jsonObject.put("reserveCount", count);
 
             final String mRequestBody = jsonObject.toString();
-            Log.d("Request JSON", mRequestBody);
+            Log.d("First JSON", mRequestBody);
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
                 URL, jsonObject,
@@ -154,7 +154,6 @@ public class ReservationSummary extends AppCompatActivity {
                 String body;
                 //get status code here
                 final String statusCode = String.valueOf(error.networkResponse.statusCode);
-
                     body = new String(error.networkResponse.data,"UTF-8");
                     Log.e("LOG_VOLLEY_ERROR_A", statusCode);
                     Log.e("LOG_VOLLEY_ERROR_B", body);
@@ -163,18 +162,7 @@ public class ReservationSummary extends AppCompatActivity {
                 }
 
             }
-        }){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> param = new HashMap<String, String>();
-                return param;
-            }
-
-            @Override
-            public String getBodyContentType() {
-                return "application/json; charset=utf-8";
-            }
-        };
+        });
         mRequestQueue.add(jsonObjReq);
     }
 }

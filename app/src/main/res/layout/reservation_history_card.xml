@@ -64,7 +64,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/TVdate"
+            android:id="@+id/Tfrom"
             android:layout_width="244dp"
             android:layout_height="22dp"
             android:layout_marginTop="52dp"
@@ -75,7 +75,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/TVskills"
+            android:id="@+id/Tto"
             android:layout_width="240dp"
             android:layout_height="21dp"
             android:layout_marginTop="84dp"
@@ -86,7 +86,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/TVrole"
+            android:id="@+id/Tseats"
             android:layout_width="244dp"
             android:layout_height="22dp"
             android:layout_marginTop="112dp"
@@ -97,7 +97,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/TVname"
+            android:id="@+id/Tdate"
             android:layout_width="244dp"
             android:layout_height="22dp"
             android:layout_marginTop="20dp"

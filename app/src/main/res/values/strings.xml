@@ -75,8 +75,9 @@
         <string name="cancel">Cancel</string>
         <string name="back">Back</string>
         <string name="confirmation">Confirmation</string>
+    <string name="edit">EDIT</string>
 
-        <string-array name="city_array">
+    <string-array name="city_array">
                 <item></item>
                 <item>Fort</item>
                 <item>Kandy</item>

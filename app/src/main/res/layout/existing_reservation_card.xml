@@ -9,7 +9,7 @@
     android:layout_marginBottom="26dp"
     android:background="#0D3FF3CF"
     android:scrollbars="vertical"
-    app:cardBackgroundColor="#1fff"
+    app:cardBackgroundColor="#4fff"
     app:cardCornerRadius="40dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,6 +23,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="20dp"
             android:text="Date      :"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,6 +35,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="52dp"
             android:text="From     :"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -45,6 +47,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:text="Seats    :"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,66 +62,68 @@
             android:layout_marginTop="84dp"
             android:fontFamily="sans-serif-medium"
             android:text="To          :"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/TVdate"
+            android:id="@+id/Tfrom"
             android:layout_width="244dp"
             android:layout_height="22dp"
             android:layout_marginTop="52dp"
             android:layout_marginEnd="28dp"
             android:fontFamily="sans-serif-medium"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/TVskills"
+            android:id="@+id/Tto"
             android:layout_width="240dp"
             android:layout_height="21dp"
             android:layout_marginTop="84dp"
             android:layout_marginEnd="32dp"
             android:fontFamily="sans-serif-medium"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/TVrole"
+            android:id="@+id/Tseats"
             android:layout_width="244dp"
             android:layout_height="22dp"
             android:layout_marginTop="112dp"
             android:layout_marginEnd="28dp"
             android:fontFamily="sans-serif-medium"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/TVname"
+            android:id="@+id/Tdate"
             android:layout_width="244dp"
             android:layout_height="22dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="28dp"
             android:fontFamily="sans-serif-medium"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/BTNassign"
+            android:id="@+id/BTNedit"
             android:layout_width="123dp"
             android:layout_height="50dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Edit"
+            android:text="@string/edit"
             android:textColor="@color/white"
+            android:backgroundTint="@color/toolbar"
             app:backgroundTint="@color/toolbar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="TextContrastCheck" />
+            app:cornerRadius="10dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
