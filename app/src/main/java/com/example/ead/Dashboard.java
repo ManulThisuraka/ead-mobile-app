@@ -17,7 +17,7 @@ Button logout;
 
         ImageButton btnNew = findViewById(R.id.btnNew);
         ImageButton btnProfile = findViewById(R.id.btnProfile);
-//        ImageButton btnFunds = findViewById(R.id.btnFunds);
+        ImageButton btnExist = findViewById(R.id.btnExist);
 //        ImageButton btnInventory = findViewById(R.id.btnInventory);
 //        Button logout = findViewById(R.id.btnLogout1);
 
@@ -54,8 +54,8 @@ Button logout;
             }
         });
 
+        //Profile Navigation
         btnProfile.setOnClickListener(new View.OnClickListener()
-
         {
             @Override
             public void onClick (View view){
@@ -63,16 +63,15 @@ Button logout;
                 startActivity(intent);
             }
         });
-//
-//        btnFunds.setOnClickListener(new View.OnClickListener()
-//
-//        {
-//            @Override
-//            public void onClick (View view){
-//                Intent intent = new Intent(HomeDashboard.this, AddFundsFirst.class);
-//                startActivity(intent);
-//            }
-//        });
+
+        btnExist.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View view){
+                Intent intent = new Intent(Dashboard.this, ActiveReservations.class);
+                startActivity(intent);
+            }
+        });
 //
 //        btnInventory.setOnClickListener(new View.OnClickListener()
 //

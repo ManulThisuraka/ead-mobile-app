@@ -35,8 +35,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/VMrecycler"
-        android:layout_width="412dp"
-        android:layout_height="666dp"
+        android:layout_width="394dp"
+        android:layout_height="698dp"
         android:background="@color/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
