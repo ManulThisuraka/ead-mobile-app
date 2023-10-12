@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -35,12 +37,11 @@ import java.util.List;
 public class ActiveReservations extends AppCompatActivity {
 
     private RecyclerView rList;
-
     private LinearLayoutManager linearLayoutManager;
     private DividerItemDecoration dividerItemDecoration;
     private List<CardModel> ReservationList;
+    String nic;
     private RecyclerView.Adapter adapter;
-    CardModel CreatedReservation = new CardModel();
     Button Edit;
 
     @Override
@@ -75,6 +76,10 @@ public class ActiveReservations extends AppCompatActivity {
             }
         });
 
+        // Restore the values from the saved state
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        nic = preferences.getString("NIC", "");
+
         getData();
     }
 
@@ -85,14 +90,17 @@ public class ActiveReservations extends AppCompatActivity {
 
         HttpsTrustManager.allowAllSSL();
 
-        String id = "987654123V";
+        String id = "987654123V"; //#################################nic
         String URL1 = Constants.BASE_URL + "/api/Reservation/get/"+id;
-        JsonObjectRequest jsonArrayRequest = new JsonObjectRequest(Request.Method.GET,
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 URL1, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
                 JSONArray objectArray = null;
+                final String mRequestBody = response.toString();
+                Log.d("JSON ARRAY", mRequestBody);
+
                 try {
                     objectArray = new JSONArray(response.getString("data"));
                 } catch (JSONException e) {
@@ -102,15 +110,24 @@ public class ActiveReservations extends AppCompatActivity {
                     try {
                         JSONObject jsonObject = objectArray.getJSONObject(i);
                         if(jsonObject.getInt("status") == 0) {
+                            CardModel CreatedReservation = new CardModel();
+                            CreatedReservation.setId(jsonObject.getString("_id"));
                             CreatedReservation.setDate(jsonObject.getString("reservationDate"));
+                            CreatedReservation.setTrainScheduleid(jsonObject.getString("trainScheduleid"));
+                            CreatedReservation.setNic(jsonObject.getString("nic"));
+                            CreatedReservation.setCreatedAt(jsonObject.getString("createdAt"));
+                            CreatedReservation.setUpdatedAt(jsonObject.getString("updatedAt"));
                             CreatedReservation.setCount(jsonObject.getInt("reserveCount"));
-                            getTrainScheduleDetails(jsonObject.getString("trainScheduleid"));
+                            CreatedReservation.setStatus(jsonObject.getInt("status"));
+                            getTrainScheduleDetails(jsonObject.getString("trainScheduleid"),CreatedReservation);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                         progressDialog.dismiss();
                     }
                 }
+                final String message = ReservationList.toString();
+                Log.d("List ARRAY", message);
                 adapter.notifyDataSetChanged();
                 progressDialog.dismiss();
 
@@ -123,15 +140,14 @@ public class ActiveReservations extends AppCompatActivity {
             }
         });
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(jsonArrayRequest);
+        requestQueue.add(jsonObjectRequest);
     }
 
-    private void getTrainScheduleDetails(String id) {
+    private void getTrainScheduleDetails(String id, CardModel CreatedReservation) {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
 
-        //String id = "";
         String URL2 = Constants.BASE_URL + "/api/TrainSchedule/getById/"+id;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 URL2, null, new Response.Listener<JSONObject>() {
@@ -139,9 +155,10 @@ public class ActiveReservations extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                     try {
                         JSONObject jsonObject = new JSONObject(response.getString("data"));
-                            CreatedReservation.setFrom(jsonObject.getString("departure"));
-                            CreatedReservation.setTo(jsonObject.getString("destination"));
-                            ReservationList.add(CreatedReservation);
+                        CreatedReservation.setFrom(jsonObject.getString("departure"));
+                        CreatedReservation.setTo(jsonObject.getString("destination"));
+                        CreatedReservation.setTime(jsonObject.getString("startTime"));
+                        ReservationList.add(CreatedReservation);
                     } catch (JSONException e) {
                         e.printStackTrace();
                         progressDialog.dismiss();

@@ -1,9 +1,11 @@
 package com.example.ead;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,6 +39,25 @@ public class ReservationsAdapter extends RecyclerView.Adapter<ReservationsAdapte
         holder.textTo.setText(String.valueOf(reservationObj.getTo()));
         holder.textSeats.setText(String.valueOf(reservationObj.getCount()));
 
+        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),UpdateReservation.class);
+                intent.putExtra("ReservationId",reservationObj.getId());
+                intent.putExtra("ReservationTSId",reservationObj.getTrainScheduleid());
+                intent.putExtra("ReservationNIC",reservationObj.getNic());
+                intent.putExtra("ReservationCreatedAt",reservationObj.getCreatedAt());
+                intent.putExtra("ReservationUpdatedAt",reservationObj.getUpdatedAt());
+                intent.putExtra("ReservationDate",reservationObj.getDate());
+                intent.putExtra("ReservationCount",reservationObj.getCount());
+                intent.putExtra("status",reservationObj.getStatus());
+                intent.putExtra("ReservationFrom",reservationObj.getFrom());
+                intent.putExtra("ReservationTo",reservationObj.getTo());
+                intent.putExtra("ReservationTime",reservationObj.getTime());
+                v.getContext().startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -46,6 +67,7 @@ public class ReservationsAdapter extends RecyclerView.Adapter<ReservationsAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textDate, textFrom, textTo, textSeats;
+        Button btnEdit;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -54,6 +76,8 @@ public class ReservationsAdapter extends RecyclerView.Adapter<ReservationsAdapte
             textFrom = itemView.findViewById(R.id.Tfrom);
             textTo = itemView.findViewById(R.id.Tto);
             textSeats = itemView.findViewById(R.id.Tseats);
+
+            btnEdit = (Button) itemView.findViewById(R.id.BTNedit);
         }
     }
 

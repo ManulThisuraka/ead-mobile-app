@@ -2,59 +2,89 @@ package com.example.ead.models;
 
 public class Reservation {
 
-    private String date;
-    private String from;
-    private String to;
-    private String schedule;
-    private int count;
+    private String _id;
+    private String trainScheduleid;
+    private String nic;
+    private String createdAt;
+    private String updatedAt;
+    private String reservationDate;
+    private int reserveCount;
+    private int status;
 
     public Reservation() {}
 
-    public Reservation(String date, String from, String to, String schedule, int count) {
-        this.date = date;
-        this.from = from;
-        this.to = to;
-        this.schedule = schedule;
-        this.count = count;
+    public Reservation(String _id, String trainScheduleid, String nic, String createdAt, String updatedAt, String reservationDate, int reserveCount, int status) {
+        this._id = _id;
+        this.trainScheduleid = trainScheduleid;
+        this.nic = nic;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.reservationDate = reservationDate;
+        this.reserveCount = reserveCount;
+        this.status = status;
     }
 
-    public String getDate() {
-        return date;
+    public String get_id() {
+        return _id;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
-    public String getFrom() {
-        return from;
+    public String getTrainScheduleid() {
+        return trainScheduleid;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setTrainScheduleid(String trainScheduleid) {
+        this.trainScheduleid = trainScheduleid;
     }
 
-    public String getTo() {
-        return to;
+    public String getNic() {
+        return nic;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setNic(String nic) {
+        this.nic = nic;
     }
 
-    public String getSchedule() {
-        return schedule;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setSchedule(String schedule) {
-        this.schedule = schedule;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public int getCount() {
-        return count;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getReservationDate() {
+        return reservationDate;
+    }
+
+    public void setReservationDate(String reservationDate) {
+        this.reservationDate = reservationDate;
+    }
+
+    public int getReserveCount() {
+        return reserveCount;
+    }
+
+    public void setReserveCount(int reserveCount) {
+        this.reserveCount = reserveCount;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

@@ -190,7 +190,7 @@
         android:background="@drawable/input_field"
         android:backgroundTint="@color/white"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textColor="@color/black"
         android:textColorHint="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
@@ -200,7 +200,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/BtnConfirm"
+        android:id="@+id/BtnUpdate"
         android:layout_width="162dp"
         android:layout_height="53dp"
         android:layout_marginBottom="72dp"
@@ -218,13 +218,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/BtnBack"
+        android:id="@+id/BtnDelete"
         android:layout_width="162dp"
         android:layout_height="53dp"
         android:layout_marginBottom="72dp"
         android:backgroundTint="@color/delete_btn"
         android:fontFamily="sans-serif-black"
-        android:text="@string/cancel"
+        android:text="Delete"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"

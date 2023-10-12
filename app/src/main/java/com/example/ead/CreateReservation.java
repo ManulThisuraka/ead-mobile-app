@@ -26,7 +26,7 @@ public class CreateReservation extends AppCompatActivity implements AdapterView.
     String Vto,Vfrom,Vschedule;
     private DatePickerDialog picker;
     private Spinner todrpdwn, fromdrpdwn, scheduledrpdwn;
-    String date, from, to, schedule, count;
+
 
 
     @Override
@@ -135,7 +135,6 @@ public class CreateReservation extends AppCompatActivity implements AdapterView.
 
             //Save date when going to next page
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-
 
             // Restore the values from the saved state
             Vdate.setText(preferences.getString("date", ""));

@@ -11,28 +11,17 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.HttpHeaderParser;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.ead.constants.Constants;
 import com.example.ead.constants.HttpsTrustManager;
-import com.example.ead.models.Reservation;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ReservationSummary extends AppCompatActivity {
 
@@ -90,7 +79,7 @@ public class ReservationSummary extends AppCompatActivity {
         Eschedule = findViewById(R.id.Cschedule);
         Ecount = findViewById(R.id.Ccount);
 
-        CBtnConfirm = findViewById(R.id.BtnConfirm);
+        CBtnConfirm = findViewById(R.id.BtnUpdate);
 
 
         Bundle extras = getIntent().getExtras();
@@ -113,8 +102,8 @@ public class ReservationSummary extends AppCompatActivity {
     private void addReservationAPI(String date, String NIC, String scheduleID, int count) throws JSONException {
 
             date = "2023-10-09T17:22:35.391Z";
-            NIC = "985632145v";
-            scheduleID = "6526e0ed88771d0cb06106a6";
+            NIC = "987654123V";
+            scheduleID = "65271ba5c314312a3e3d0827";
             count = 2;
 
             HttpsTrustManager.allowAllSSL();
