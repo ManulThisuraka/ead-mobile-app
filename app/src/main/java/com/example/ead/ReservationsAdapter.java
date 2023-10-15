@@ -2,14 +2,17 @@ package com.example.ead;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ead.constants.CommonMethods;
 import com.example.ead.models.CardModel;
 
 import java.util.List;
@@ -29,6 +32,7 @@ public class ReservationsAdapter extends RecyclerView.Adapter<ReservationsAdapte
         View v = LayoutInflater.from(context).inflate(R.layout.existing_reservation_card, parent, false);
         return new ViewHolder(v);
     }
+
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {

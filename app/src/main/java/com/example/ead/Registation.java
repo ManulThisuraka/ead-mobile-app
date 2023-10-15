@@ -29,7 +29,6 @@ import org.json.JSONObject;
 
 public class Registation extends AppCompatActivity {
     EditText Rname, Rnic, Remail, Rpassword, RCpassword;
-    String nic,name,email,password;
     int role = 0;
     Button Register;
 
@@ -57,30 +56,36 @@ public class Registation extends AppCompatActivity {
             }
         });
     }
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
 
-        // Save the current values of your fields to SharedPreferences
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("NIC", Rnic.getText().toString());
-        editor.apply();
+    // Helper function to validate NIC
+    public boolean isValidNic(String nic) {
+        // Check if NIC is either 10 characters long and ends with 'V' or 'v' or is a 12-digit number
+        return nic.matches("[0-9]{12}|[0-9]{9}[vV]");
+    }
+
+    // Helper function to validate Email
+    public boolean isValidEmail(String email) {
+        // You can use a regular expression to validate email format
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        return email.matches(emailPattern);
+    }
+
+    // Function to validate Password
+    public boolean isValidPassword(String password, String confirmPassword) {
+        return password.length() >= 8 && password.equals(confirmPassword);
     }
 
     //Redirect to next page
     public void Register() throws JSONException {
 
         if (TextUtils.isEmpty(Rname.getText().toString())) {
-            Toast.makeText(getApplicationContext(), "Please enter the the Date", Toast.LENGTH_SHORT).show();
-        } else if (TextUtils.isEmpty(Rnic.getText().toString())) {
-            Toast.makeText(getApplicationContext(), "Please enter the Departure", Toast.LENGTH_SHORT).show();
-        } else if (TextUtils.isEmpty(Remail.getText().toString())) {
-            Toast.makeText(getApplicationContext(), "Please enter the Destination", Toast.LENGTH_SHORT).show();
-        } else if (TextUtils.isEmpty(Rpassword.getText().toString())) {
-            Toast.makeText(getApplicationContext(), "Please select the schedule", Toast.LENGTH_SHORT).show();
-        } else if (TextUtils.isEmpty(RCpassword.getText().toString())) {
-            Toast.makeText(getApplicationContext(), "Please enter the number of reservations", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please enter the Name", Toast.LENGTH_SHORT).show();
+        } else if (!isValidNic(Rnic.getText().toString())) {
+            Toast.makeText(getApplicationContext(), "Please enter a valid NIC", Toast.LENGTH_SHORT).show();
+        } else if (!isValidEmail(Remail.getText().toString())) {
+            Toast.makeText(getApplicationContext(), "Please enter a valid Email", Toast.LENGTH_SHORT).show();
+        } else if (!isValidPassword(Rpassword.getText().toString(), RCpassword.getText().toString())) {
+            Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
         } else {
 
             final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -89,8 +94,6 @@ public class Registation extends AppCompatActivity {
 
             HttpsTrustManager.allowAllSSL();
             RequestQueue mRequestQueue = Volley.newRequestQueue(this);
-
-            nic = Rnic.getText().toString();
 
             JSONObject jsonObject = new JSONObject();
 
@@ -110,7 +113,7 @@ public class Registation extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     Toast.makeText(getApplicationContext(), "Account Registered Successfully", Toast.LENGTH_SHORT).show();
-                    Intent intent2 = new Intent(Registation.this,Dashboard.class);
+                    Intent intent2 = new Intent(Registation.this,Login.class);
                     progressDialog.dismiss();
                     startActivity(intent2);
                 }

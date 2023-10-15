@@ -85,13 +85,13 @@
 
     <TextView
         android:id="@+id/text4"
-        android:layout_width="277dp"
-        android:layout_height="28dp"
+        android:layout_width="113dp"
+        android:layout_height="21dp"
         android:layout_marginStart="46dp"
         android:layout_marginTop="392dp"
         android:layout_marginEnd="299dp"
         android:fontFamily="sans-serif-medium"
-        android:text="@string/select_train_schedule"
+        android:text="Time"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -102,8 +102,8 @@
 
     <TextView
         android:id="@+id/text5"
-        android:layout_width="141dp"
-        android:layout_height="29dp"
+        android:layout_width="150dp"
+        android:layout_height="33dp"
         android:layout_marginStart="46dp"
         android:layout_marginTop="496dp"
         android:layout_marginEnd="299dp"
@@ -118,7 +118,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Cdate"
+        android:id="@+id/Rdate"
         android:layout_width="329dp"
         android:layout_height="54dp"
         android:layout_marginTop="52dp"
@@ -128,13 +128,14 @@
         android:inputType="date"
         android:textColor="@color/black"
         android:textColorHint="@color/grey"
+        android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <Spinner
-        android:id="@+id/Cfrom"
+    <EditText
+        android:id="@+id/Rfrom"
         android:layout_width="329dp"
         android:layout_height="54dp"
         android:layout_marginTop="148dp"
@@ -143,6 +144,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@color/black"
+        android:enabled="false"
         android:textColorHint="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -150,8 +152,8 @@
         tools:ignore="SpeakableTextPresentCheck"
         android:spinnerMode="dropdown"/>
 
-    <Spinner
-        android:id="@+id/Cto"
+    <EditText
+        android:id="@+id/Rto"
         android:layout_width="329dp"
         android:layout_height="54dp"
         android:layout_marginTop="252dp"
@@ -160,6 +162,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@color/black"
+        android:enabled="false"
         android:textColorHint="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -167,8 +170,8 @@
         tools:ignore="SpeakableTextPresentCheck"
         android:spinnerMode="dropdown"/>
 
-    <Spinner
-        android:id="@+id/Cschedule"
+    <EditText
+        android:id="@+id/Rschedule"
         android:layout_width="329dp"
         android:layout_height="54dp"
         android:layout_marginTop="352dp"
@@ -177,6 +180,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@color/black"
+        android:enabled="false"
         android:textColorHint="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.56"
@@ -186,7 +190,7 @@
         android:spinnerMode="dropdown"/>
 
     <EditText
-        android:id="@+id/Ccount"
+        android:id="@+id/Rcount"
         android:layout_width="329dp"
         android:layout_height="54dp"
         android:layout_marginTop="456dp"

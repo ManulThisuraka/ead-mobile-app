@@ -3,7 +3,9 @@ package com.example.ead;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +40,10 @@ public class ReservationSummary extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation_summary);
+
+        // Restore the values from the saved state
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        NIC = preferences.getString("NIC", "");
 
         //back button
         ImageView btnBack = findViewById(R.id.left);
@@ -89,22 +95,17 @@ public class ReservationSummary extends AppCompatActivity {
             Eto.setText(extras.getString("Rto"));
             Eschedule.setText(extras.getString("Rschedule"));
             Ecount.setText(extras.getString("Rcount"));
+            scheduleID = extras.getString("Rsid");
             //The key argument here must match that used in the other activity
-
-            //date = extras.getString("Rdate");6523caa7f73de7a9bfb57636
-            date = "2023-10-09T17:22:35.391Z";
-            NIC = "985632145v";
-            scheduleID = "6526e0ed88771d0cb06106a6";
-            count = 2;
         }
+
+        date = Edate.getText().toString();
+        String countText = Ecount.getText().toString();
+        count = Integer.parseInt(countText);
     }
 
     private void addReservationAPI(String date, String NIC, String scheduleID, int count) throws JSONException {
 
-            date = "2023-10-09T17:22:35.391Z";
-            NIC = "987654123V";
-            scheduleID = "65271ba5c314312a3e3d0827";
-            count = 2;
 
             HttpsTrustManager.allowAllSSL();
             JSONObject jsonObject = new JSONObject();

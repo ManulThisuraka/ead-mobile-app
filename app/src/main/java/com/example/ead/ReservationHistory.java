@@ -1,5 +1,6 @@
 package com.example.ead;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -21,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.ead.constants.CommonMethods;
 import com.example.ead.constants.Constants;
 import com.example.ead.constants.HttpsTrustManager;
 import com.example.ead.models.CardModel;
@@ -86,10 +89,11 @@ public class ReservationHistory extends AppCompatActivity {
 
         HttpsTrustManager.allowAllSSL();
 
-        String id = "987654123V"; //#################################nic
-        String URL1 = Constants.BASE_URL + "/api/Reservation/get/"+id;
+        //String id = "987654123V";
+        String URL1 = Constants.BASE_URL + "/api/Reservation/get/"+nic;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 URL1, null, new Response.Listener<JSONObject>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onResponse(JSONObject response) {
 
@@ -108,7 +112,7 @@ public class ReservationHistory extends AppCompatActivity {
                         if(jsonObject.getInt("status") == 2) {
                             CardModel CreatedReservation = new CardModel();
                             CreatedReservation.setId(jsonObject.getString("_id"));
-                            CreatedReservation.setDate(jsonObject.getString("reservationDate"));
+                            CreatedReservation.setDate(CommonMethods.convertToDate(jsonObject.getString("reservationDate")));
                             CreatedReservation.setTrainScheduleid(jsonObject.getString("trainScheduleid"));
                             CreatedReservation.setNic(jsonObject.getString("nic"));
                             CreatedReservation.setCreatedAt(jsonObject.getString("createdAt"));

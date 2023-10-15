@@ -9,15 +9,18 @@
         <entry key="..\:/AS/EAD/app/src/main/res/layout/activity_active_reservations.xml" value="0.2" />
         <entry key="..\:/AS/EAD/app/src/main/res/layout/activity_create_reservation.xml" value="0.264" />
         <entry key="..\:/AS/EAD/app/src/main/res/layout/activity_dashboard.xml" value="0.25416666666666665" />
+        <entry key="..\:/AS/EAD/app/src/main/res/layout/activity_existing_reservations.xml" value="0.25416666666666665" />
         <entry key="..\:/AS/EAD/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/AS/EAD/app/src/main/res/layout/activity_new_reservation.xml" value="0.25416666666666665" />
         <entry key="..\:/AS/EAD/app/src/main/res/layout/activity_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/AS/EAD/app/src/main/res/layout/activity_registation.xml" value="0.25416666666666665" />
         <entry key="..\:/AS/EAD/app/src/main/res/layout/activity_reservation_history.xml" value="0.25416666666666665" />
         <entry key="..\:/AS/EAD/app/src/main/res/layout/activity_reservation_summary.xml" value="0.25416666666666665" />
+        <entry key="..\:/AS/EAD/app/src/main/res/layout/activity_select_schedule.xml" value="0.24010416666666667" />
         <entry key="..\:/AS/EAD/app/src/main/res/layout/activity_update_reservation.xml" value="0.25416666666666665" />
         <entry key="..\:/AS/EAD/app/src/main/res/layout/existing_reservation_card.xml" value="0.25416666666666665" />
         <entry key="..\:/AS/EAD/app/src/main/res/layout/reservation_history_card.xml" value="0.264" />
+        <entry key="..\:/AS/EAD/app/src/main/res/layout/select_schedule_card.xml" value="0.4" />
         <entry key="..\:/AS/EAD/app/src/main/res/layout/test.xml" value="0.25416666666666665" />
         <entry key="..\:/AS/EAD/app/src/main/res/layout/toolbar.xml" value="0.25416666666666665" />
       </map>
