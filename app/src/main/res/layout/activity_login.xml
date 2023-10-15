@@ -9,7 +9,7 @@
     tools:context=".Login">
 
     <EditText
-        android:id="@+id/Email"
+        android:id="@+id/Lemail"
         android:layout_width="310dp"
         android:layout_height="50sp"
         android:background="@drawable/input_field"
@@ -27,7 +27,7 @@
         app:layout_constraintVertical_bias="0.481" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/Lpassword"
         android:layout_width="310dp"
         android:layout_height="50sp"
         android:background="@drawable/input_field"

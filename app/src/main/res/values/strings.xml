@@ -1,95 +1,95 @@
 <resources>
-        <string name="app_name">EAD</string>
-        <string name="hello_there">HELLO THERE !</string>
-        <string name="sign_up">Sign Up</string>
-        <string name="new_to_here">New to here ?</string>
-        <string name="good_to_see_you">Good to see you !</string>
-        <string name="sign_in">Sign In</string>
-        <string name="already_in">Already In ?</string>
-        //sign in and sign up, edit profile, delete
-        <string name="username">Username</string>
-        <string name="firstname">Name</string>
-        <string name="lastname">NIC</string>
-        <string name="email">Email</string>
-        <string name="addphoto">Add Photo</string>
-        <string name="Reserve">Reserve</string>
-        <string name="d_name">Reserve</string>
-        <string name="contact">Reserve</string>
-        <string name="nic">Reserve</string>
-        <string name="address">Reserve</string>
-        <string name="reservation">Reservation</string>
-        <string name="Confirmation">Confirmation</string>
-        <string name="confirm">Confirm</string>
-        <string name="updateR">Update Reservation</string>
-        <string name="update">Update</string>
-        <string name="delete">Deactivate</string>
-        <string name="Profile">Profile</string>
-        <string name="railway">Sri Lanka Railway Department</string>
-        <string name="user_profile">User Profile</string>
-        <string name="newR">New Reservation</string>
-        <string name="ExitR">Existing Reservations</string>
-        <string name="HisR">Reservation History</string>
+    <string name="app_name">EAD</string>
+    <string name="hello_there">HELLO THERE !</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="new_to_here">New to here ?</string>
+    <string name="good_to_see_you">Good to see you !</string>
+    <string name="sign_in">Sign In</string>
+    <string name="already_in">Already In ?</string>
+    //sign in and sign up, edit profile, delete
+    <string name="username">Username</string>
+    <string name="firstname">Name</string>
+    <string name="lastname">NIC</string>
+    <string name="email">Email</string>
+    <string name="addphoto">Add Photo</string>
+    <string name="Reserve">Reserve</string>
+    <string name="d_name">Reserve</string>
+    <string name="contact">Reserve</string>
+    <string name="nic">Reserve</string>
+    <string name="address">Reserve</string>
+    <string name="reservation">Reservation</string>
+    <string name="Confirmation">Confirmation</string>
+    <string name="confirm">Confirm</string>
+    <string name="updateR">Update Reservation</string>
+    <string name="update">Update</string>
+    <string name="delete">Deactivate</string>
+    <string name="Profile">Profile</string>
+    <string name="railway">Sri Lanka Railway Department</string>
+    <string name="user_profile">User Profile</string>
+    <string name="newR">New Reservation</string>
+    <string name="ExitR">Existing Reservations</string>
+    <string name="HisR">Reservation History</string>
 
 
-        <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-            <item name="colorPrimary">@color/design_default_color_primary</item>
-            <item name="colorPrimaryDark">@color/design_default_color_primary_dark</item>
-            <item name="colorAccent">@color/design_default_color_surface</item>
-            <item name="windowNoTitle">true</item>
-            <item name="windowActionBar">false</item>
-        </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/design_default_color_primary</item>
+        <item name="colorPrimaryDark">@color/design_default_color_primary_dark</item>
+        <item name="colorAccent">@color/design_default_color_surface</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
 
-        <style name="AppTheme.NoActionBar">
-            <item name="windowActionBar">false</item>
-            <item name="windowNoTitle">true</item>
-            <item name="android:statusBarColor">@android:color/transparent</item>
-        </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
 
-        //Dashboard Admin
-        <string name="dashboard">Dashboard</string>
-        <string name="Reservations">Reservations</string>
-        <string name="admin_">Admin</string>
-        <string name="registrations">Registration</string>
-        <string name="customer">Customer</string>
+    //Dashboard Admin
+    <string name="dashboard">Dashboard</string>
+    <string name="Reservations">Reservations</string>
+    <string name="admin_">Admin</string>
+    <string name="registrations">Registration</string>
+    <string name="customer">Customer</string>
 
-        <string name="buttn4">SUBMIT</string>
-        <string name="hello_first_fragment">Hello first fragment</string>
-        <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="buttn4">SUBMIT</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 
-        //User Details
-        <string name="register">Register</string>
-        <string name="confirm_password">Confirm Password</string>
-        <string name="password">Password</string>
-        <string name="first_name">First Name:</string>
-        <string name="phone">Phone:</string>
-        <string name="login">Login</string>
-        <string name="create_an_account">Create an account ?</string>
-        <string name="date">Date</string>
-        <string name="to">To</string>
-        <string name="from">From</string>
-        <string name="select_train_schedule">Select Train Schedule</string>
-        <string name="seat_count">Seat Count</string>
-        <string name="update_reservation">Reservation Details</string>
-        <string name="train_schedule">Train Schedule</string>
-        <string name="cancel">Cancel</string>
-        <string name="back">Back</string>
-        <string name="confirmation">Confirmation</string>
+    //User Details
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="password">Password</string>
+    <string name="first_name">First Name:</string>
+    <string name="phone">Phone:</string>
+    <string name="login">Login</string>
+    <string name="create_an_account">Create an account ?</string>
+    <string name="date">Date</string>
+    <string name="to">To</string>
+    <string name="from">From</string>
+    <string name="select_train_schedule">Select Train Schedule</string>
+    <string name="seat_count">Seat Count</string>
+    <string name="update_reservation">Reservation Details</string>
+    <string name="train_schedule">Train Schedule</string>
+    <string name="cancel">Cancel</string>
+    <string name="back">Back</string>
+    <string name="confirmation">Confirmation</string>
     <string name="edit">EDIT</string>
 
     <string-array name="city_array">
-                <item></item>
-                <item>Fort</item>
-                <item>Kandy</item>
-                <item>Galle</item>
-                <item>Jaffna</item>
-        </string-array>
+        <item></item>
+        <item>Fort</item>
+        <item>Kandy</item>
+        <item>Galle</item>
+        <item>Jaffna</item>
+    </string-array>
 
-        <string-array name="time_array">
-                <item></item>
-                <item>8.30</item>
-                <item>12.30</item>
-                <item>4.30</item>
-        </string-array>
+    <string-array name="time_array">
+        <item></item>
+        <item>8.30</item>
+        <item>12.30</item>
+        <item>4.30</item>
+    </string-array>
 
 </resources>

@@ -2,11 +2,14 @@ package com.example.ead;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +26,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.ead.constants.Constants;
 import com.example.ead.constants.HttpsTrustManager;
 import com.example.ead.models.CardModel;
+import com.example.ead.models.CustomJsonObjectRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -83,15 +87,53 @@ public class Profile extends AppCompatActivity {
         });
 
         // Deactivate button
+//        BTNdeactivate = findViewById(R.id.deactivateBtn);
+//        BTNdeactivate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                try {
+//                    DeactivateProfile();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+
         BTNdeactivate = findViewById(R.id.deactivateBtn);
         BTNdeactivate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    DeactivateProfile();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                // Create an AlertDialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(Profile.this);
+
+                // Set the title and message
+                builder.setTitle("Deactivate Account");
+                builder.setMessage("Are you sure? If you deactivate your account, you have to contact your traveler agent to activate your account again.");
+
+                // Add a positive button (OK)
+                builder.setPositiveButton("Deactivate", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
+                            DeactivateProfile();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+                // Add a negative button (Cancel)
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Dismiss the dialog if the user cancels
+                        dialog.dismiss();
+                    }
+                });
+
+                // Create and show the AlertDialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 
@@ -99,6 +141,18 @@ public class Profile extends AppCompatActivity {
         loadData();
 
     }
+    // Helper function to validate Email
+    public boolean isValidEmail(String email) {
+        // You can use a regular expression to validate email format
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        return email.matches(emailPattern);
+    }
+
+    // Function to validate Password
+    public boolean isValidPassword(String password, String confirmPassword) {
+        return password.length() >= 8 && password.equals(confirmPassword);
+    }
+
     public void loadData(){
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
@@ -137,44 +191,48 @@ public class Profile extends AppCompatActivity {
         requestQueue.add(jsonObjectRequest);
     }
     public void UpdateProfile() throws JSONException {
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Updating...");
-        progressDialog.show();
+        if (TextUtils.isEmpty(Vname.getText().toString())) {
+            Toast.makeText(getApplicationContext(), "Please enter the Name", Toast.LENGTH_SHORT).show();
+        } else if (!isValidEmail(Vemail.getText().toString())) {
+            Toast.makeText(getApplicationContext(), "Please enter a valid Email", Toast.LENGTH_SHORT).show();
+        } else if (!isValidPassword(Vpassword.getText().toString(), Vpassword2.getText().toString())) {
+            Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
+        } else {
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage("Updating...");
+            progressDialog.show();
 
-        HttpsTrustManager.allowAllSSL();
-        JSONObject jsonObject = new JSONObject();
+            HttpsTrustManager.allowAllSSL();
+            JSONObject jsonObject = new JSONObject();
 
-        jsonObject.put("nic", Snic);
-        jsonObject.put("name", Vname.getText().toString());
-        jsonObject.put("email", Vemail.getText().toString());
-        jsonObject.put("role", 0);
-        jsonObject.put("password", Vpassword.getText().toString());
-        jsonObject.put("status", 0);
+            jsonObject.put("name", Vname.getText().toString());
+            jsonObject.put("email", Vemail.getText().toString());
+            jsonObject.put("password", Vpassword.getText().toString());
 
-        final String mRequestBody = jsonObject.toString();
-        Log.d("Reservation JSON", mRequestBody);
+            final String mRequestBody = jsonObject.toString();
+            Log.d("Reservation JSON", mRequestBody);
 
-        RequestQueue mRequestQueue = Volley.newRequestQueue(this);
+            RequestQueue mRequestQueue = Volley.newRequestQueue(this);
 
-        String updateURL = Constants.BASE_URL + "/api/Reservation/update/" +Snic;
+            String updateURL = Constants.BASE_URL + "/api/User/updateuser/" + Snic;
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT,
-                updateURL, jsonObject, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                Toast.makeText(getApplicationContext(), "Your Profile Updated Successfully", Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("Volley", error.toString());
-                progressDialog.dismiss();
-            }
-        });
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(jsonObjectRequest);
-
+            CustomJsonObjectRequest jsonObjectRequest = new CustomJsonObjectRequest(Request.Method.PATCH,
+                    updateURL, jsonObject, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Your Profile Updated Successfully", Toast.LENGTH_SHORT).show();
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.e("Volley", error.toString());
+                    progressDialog.dismiss();
+                }
+            });
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            requestQueue.add(jsonObjectRequest);
+        }
     }
 
     public void DeactivateProfile() throws JSONException{
@@ -185,10 +243,6 @@ public class Profile extends AppCompatActivity {
         HttpsTrustManager.allowAllSSL();
         JSONObject jsonObject = new JSONObject();
 
-        jsonObject.put("nic", Snic);
-        jsonObject.put("name", Vname.getText().toString());
-        jsonObject.put("email", Vemail.getText().toString());
-        jsonObject.put("role", 0);
         jsonObject.put("password", Vpassword.getText().toString());
         jsonObject.put("status", 1);
 
@@ -197,9 +251,9 @@ public class Profile extends AppCompatActivity {
 
         RequestQueue mRequestQueue = Volley.newRequestQueue(this);
 
-        String updateURL = Constants.BASE_URL + "/api/Reservation/update/" +Snic;
+        String updateURL = Constants.BASE_URL + "/api/User/updateuser/" +Snic;
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT,
+        CustomJsonObjectRequest jsonObjectRequest = new CustomJsonObjectRequest(Request.Method.PATCH,
                 updateURL, jsonObject, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

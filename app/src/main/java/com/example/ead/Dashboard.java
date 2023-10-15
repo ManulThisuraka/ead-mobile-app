@@ -24,14 +24,16 @@ Button logout;
         ImageButton btnExist = findViewById(R.id.btnExist);
         ImageButton btnHistory = findViewById(R.id.btnInventory);
 
-
+        // Restore the values from the saved state
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        nic = preferences.getString("NIC", "");
 
         btnNew.setOnClickListener(new View.OnClickListener()
 
         {
             @Override
             public void onClick (View view){
-                Intent intent = new Intent(Dashboard.this, CreateReservation.class);
+                Intent intent = new Intent(Dashboard.this, SelectSchedule.class);
                 intent.putExtra("clearPreferences", true);
                 startActivity(intent);
             }
@@ -82,8 +84,5 @@ Button logout;
             }
         });
 
-        // Restore the values from the saved state
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        nic = preferences.getString("NIC", "");
     }
 }

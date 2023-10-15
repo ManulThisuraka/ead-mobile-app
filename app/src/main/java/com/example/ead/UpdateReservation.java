@@ -2,11 +2,14 @@ package com.example.ead;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -95,17 +98,51 @@ public class UpdateReservation extends AppCompatActivity {
         BTNdelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    DeleteReservation();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                // Create an AlertDialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(UpdateReservation.this);
+
+                // Set the title and message
+                builder.setTitle("Delete Reservation");
+                builder.setMessage("Are you sure? This action will delete your Reservation.");
+
+                // Add a positive button (OK)
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
+                            DeleteReservation();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+                // Add a negative button (Cancel)
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Dismiss the dialog if the user cancels
+                        dialog.dismiss();
+                    }
+                });
+
+                // Create and show the AlertDialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 
     }
 
     public void UpdateReservation() throws JSONException {
+        String countText = Vcount.getText().toString();
+        if (TextUtils.isEmpty(countText)) {
+            Toast.makeText(getApplicationContext(), "Please enter the number of reservations", Toast.LENGTH_SHORT).show();
+        } else {
+            int reservationCount = Integer.parseInt(countText);
+            if (reservationCount > 4) {
+                Toast.makeText(getApplicationContext(), "You cannot reserve more than 4 seats per reservation", Toast.LENGTH_SHORT).show();
+            } else {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Updating...");
         progressDialog.show();
@@ -146,7 +183,7 @@ public class UpdateReservation extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonObjectRequest);
 
-    }
+    }}}
 
     public void DeleteReservation() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
