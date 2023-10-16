@@ -32,7 +32,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ReservationHistory extends AppCompatActivity {
@@ -109,10 +111,15 @@ public class ReservationHistory extends AppCompatActivity {
                 for (int i = 0; i < objectArray.length(); i++) {
                     try {
                         JSONObject jsonObject = objectArray.getJSONObject(i);
-                        if(jsonObject.getInt("status") == 2) {
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        Date todayDate = new Date();
+                        String todayDateString = dateFormat.format(todayDate);
+                        String Rdate = CommonMethods.convertToDateNormal(jsonObject.getString("reservationDate"));
+
+                        if(Rdate.compareTo(todayDateString) < 0) {
                             CardModel CreatedReservation = new CardModel();
                             CreatedReservation.setId(jsonObject.getString("_id"));
-                            CreatedReservation.setDate(jsonObject.getString("reservationDate"));
+                            CreatedReservation.setDate(CommonMethods.convertToDateNormal(jsonObject.getString("reservationDate")));
                             CreatedReservation.setTrainScheduleid(jsonObject.getString("trainScheduleid"));
                             CreatedReservation.setNic(jsonObject.getString("nic"));
                             CreatedReservation.setCreatedAt(jsonObject.getString("createdAt"));

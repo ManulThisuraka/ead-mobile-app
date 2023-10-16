@@ -136,7 +136,7 @@ public class ReservationSummary extends AppCompatActivity {
                 try {
                 // Handle the error here
                 String errorMessage = error.getMessage();
-                Toast.makeText(getApplicationContext(), "Error: " + errorMessage, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Reservation date must be at least 30 days from today", Toast.LENGTH_SHORT).show();
                 error.printStackTrace();
                 Log.e("LOG_VOLLEY_ERROR_1", error.toString());
                 Log.e("LOG_VOLLEY_ERROR_2", String.valueOf(error.networkResponse));
