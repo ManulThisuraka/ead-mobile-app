@@ -50,17 +50,44 @@ public class UpdateReservation extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             SresId = extras.getString("ReservationId");
-            StsID = extras.getString("ReservationTSId");
-            Snic = extras.getString("ReservationNIC");
-            ScAt = extras.getString("ReservationCreatedAt");
-            SuAt = extras.getString("ReservationUpdatedAt");
+//            StsID = extras.getString("ReservationTSId");
+//            Snic = extras.getString("ReservationNIC");
+//            ScAt = extras.getString("ReservationCreatedAt");
+//            SuAt = extras.getString("ReservationUpdatedAt");
             Sdate = extras.getString("ReservationDate");
             Scount = extras.getInt("ReservationCount");
-            Sstatus = extras.getInt("status");
+//            Sstatus = extras.getInt("status");
             Sfrom = extras.getString("ReservationFrom");
             Sto = extras.getString("ReservationTo");
             Sschedule = extras.getString("ReservationTime");
             //The key argument here must match that used in the other activity
+        }
+
+        boolean box = getIntent().getBooleanExtra("Alert", false);
+        if (box) {
+            // Create an AlertDialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(UpdateReservation.this);
+
+            // Set the title and message
+            builder.setTitle("Too Late!");
+            builder.setMessage("You can't Edit or Delete Resevation within 5 days before the reservation date");
+
+            // Add a positive button (OK)
+            builder.setPositiveButton("Back", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    try {
+                        Intent goBack = new Intent(UpdateReservation.this,ActiveReservations.class);
+                        startActivity(goBack);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            // Create and show the AlertDialog
+            AlertDialog dialog = builder.create();
+            dialog.show();
         }
 
             Vdate.setText(Sdate);
@@ -151,13 +178,13 @@ public class UpdateReservation extends AppCompatActivity {
         JSONObject jsonObject = new JSONObject();
 
         jsonObject.put("_id", SresId);
-        jsonObject.put("trainScheduleid", StsID);
-        jsonObject.put("nic", Snic);
-        jsonObject.put("createdAt", ScAt);
-        jsonObject.put("updatedAt", SuAt);
-        jsonObject.put("reservationDate", Sdate);
+//        jsonObject.put("trainScheduleid", StsID);
+//        jsonObject.put("nic", Snic);
+//        jsonObject.put("createdAt", ScAt);
+//        jsonObject.put("updatedAt", SuAt);
+//        jsonObject.put("reservationDate", Sdate);
         jsonObject.put("reserveCount", Vcount.getText().toString());
-        jsonObject.put("status", Sstatus);
+//        jsonObject.put("status", Sstatus);
 
         final String mRequestBody = jsonObject.toString();
         Log.d("Reservation JSON", mRequestBody);
