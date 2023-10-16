@@ -27,9 +27,6 @@ public class CreateReservation extends AppCompatActivity{
     String Sid;
     int Acount;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +38,7 @@ public class CreateReservation extends AppCompatActivity{
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goBack = new Intent(CreateReservation.this,Dashboard.class);
+                Intent goBack = new Intent(CreateReservation.this,SelectSchedule.class);
                 startActivity(goBack);
             }
         });
@@ -55,13 +52,6 @@ public class CreateReservation extends AppCompatActivity{
             //Save date when going to next page
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-            // Restore the values from the saved state
-            Vdate.setText(preferences.getString("date", ""));
-            Vfrom.setText(preferences.getString("from", ""));
-            Vto.setText(preferences.getString("to", ""));
-            Vschedule.setText(preferences.getString("time", ""));
-            Vcount.setText(preferences.getString("count", ""));
-
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             Vdate.setText(extras.getString("Date"));
@@ -69,8 +59,24 @@ public class CreateReservation extends AppCompatActivity{
             Vto.setText(extras.getString("To"));
             Vschedule.setText(extras.getString("Time"));
             Sid = extras.getString("Sid");
+            Acount = extras.getInt("Seats");
             //The key argument here must match that used in the other activity
         }
+
+        boolean clearP = getIntent().getBooleanExtra("clearPreferences", false);
+            if (clearP) {
+                // Clear specified preferences
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.remove("count");
+                editor.apply();
+            }
+
+        // Restore the values from the saved state
+        Vdate.setText(preferences.getString("date", ""));
+        Vfrom.setText(preferences.getString("from", ""));
+        Vto.setText(preferences.getString("to", ""));
+        Vschedule.setText(preferences.getString("time", ""));
+        Vcount.setText(preferences.getString("count", ""));
     }
 
     //Save date when going to next page
