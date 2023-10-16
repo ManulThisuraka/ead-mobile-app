@@ -112,7 +112,7 @@ public class ReservationHistory extends AppCompatActivity {
                         if(jsonObject.getInt("status") == 2) {
                             CardModel CreatedReservation = new CardModel();
                             CreatedReservation.setId(jsonObject.getString("_id"));
-                            CreatedReservation.setDate(CommonMethods.convertToDate(jsonObject.getString("reservationDate")));
+                            CreatedReservation.setDate(jsonObject.getString("reservationDate"));
                             CreatedReservation.setTrainScheduleid(jsonObject.getString("trainScheduleid"));
                             CreatedReservation.setNic(jsonObject.getString("nic"));
                             CreatedReservation.setCreatedAt(jsonObject.getString("createdAt"));

@@ -52,6 +52,13 @@ public class CreateReservation extends AppCompatActivity{
             //Save date when going to next page
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
+        // Restore the values from the saved state
+        Vdate.setText(preferences.getString("date", ""));
+        Vfrom.setText(preferences.getString("from", ""));
+        Vto.setText(preferences.getString("to", ""));
+        Vschedule.setText(preferences.getString("time", ""));
+        Vcount.setText(preferences.getString("count", ""));
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             Vdate.setText(extras.getString("Date"));
@@ -72,11 +79,11 @@ public class CreateReservation extends AppCompatActivity{
             }
 
         // Restore the values from the saved state
-        Vdate.setText(preferences.getString("date", ""));
-        Vfrom.setText(preferences.getString("from", ""));
-        Vto.setText(preferences.getString("to", ""));
-        Vschedule.setText(preferences.getString("time", ""));
-        Vcount.setText(preferences.getString("count", ""));
+//        Vdate.setText(preferences.getString("date", ""));
+//        Vfrom.setText(preferences.getString("from", ""));
+//        Vto.setText(preferences.getString("to", ""));
+//        Vschedule.setText(preferences.getString("time", ""));
+//        Vcount.setText(preferences.getString("count", ""));
     }
 
     //Save date when going to next page

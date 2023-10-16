@@ -116,13 +116,13 @@ public class ActiveReservations extends AppCompatActivity {
                         if(jsonObject.getInt("status") == 0) {
                             CardModel CreatedReservation = new CardModel();
                             CreatedReservation.setId(jsonObject.getString("_id"));
-                            CreatedReservation.setDate(CommonMethods.convertToDate(jsonObject.getString("reservationDate")));
-                            CreatedReservation.setTrainScheduleid(jsonObject.getString("trainScheduleid"));
-                            CreatedReservation.setNic(jsonObject.getString("nic"));
-                            CreatedReservation.setCreatedAt(jsonObject.getString("createdAt"));
-                            CreatedReservation.setUpdatedAt(jsonObject.getString("updatedAt"));
+                            CreatedReservation.setDate(jsonObject.getString("reservationDate"));
+//                            CreatedReservation.setTrainScheduleid(jsonObject.getString("trainScheduleid"));
+//                            CreatedReservation.setNic(jsonObject.getString("nic"));
+//                            CreatedReservation.setCreatedAt(jsonObject.getString("createdAt"));
+//                            CreatedReservation.setUpdatedAt(jsonObject.getString("updatedAt"));
                             CreatedReservation.setCount(jsonObject.getInt("reserveCount"));
-                            CreatedReservation.setStatus(jsonObject.getInt("status"));
+//                            CreatedReservation.setStatus(jsonObject.getInt("status"));
                             getTrainScheduleDetails(jsonObject.getString("trainScheduleid"),CreatedReservation);
                         }
                     } catch (JSONException e) {
