@@ -52,6 +52,14 @@ public class CreateReservation extends AppCompatActivity{
             //Save date when going to next page
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
+        boolean clearP = getIntent().getBooleanExtra("clearPreferences", false);
+        if (clearP) {
+            // Clear specified preferences
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.remove("count");
+            editor.apply();
+        }
+
         // Restore the values from the saved state
         Vdate.setText(preferences.getString("date", ""));
         Vfrom.setText(preferences.getString("from", ""));
@@ -69,14 +77,6 @@ public class CreateReservation extends AppCompatActivity{
             Acount = extras.getInt("Seats");
             //The key argument here must match that used in the other activity
         }
-
-        boolean clearP = getIntent().getBooleanExtra("clearPreferences", false);
-            if (clearP) {
-                // Clear specified preferences
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.remove("count");
-                editor.apply();
-            }
 
         // Restore the values from the saved state
 //        Vdate.setText(preferences.getString("date", ""));
