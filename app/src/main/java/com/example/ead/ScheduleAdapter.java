@@ -53,6 +53,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
                 intent.putExtra("Time",scheduleObj.getStartTime());
                 intent.putExtra("Seats",scheduleObj.getAvailableSeatCount());
                 intent.putExtra("Sid",scheduleObj.get_id());
+                intent.putExtra("clearPreferences", true);
                 v.getContext().startActivity(intent);
             }
         });

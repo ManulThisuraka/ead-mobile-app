@@ -34,7 +34,7 @@ Button logout;
             @Override
             public void onClick (View view){
                 Intent intent = new Intent(Dashboard.this, SelectSchedule.class);
-                intent.putExtra("clearPreferences", true);
+                //intent.putExtra("clearPreferences", true);
                 startActivity(intent);
             }
         });
