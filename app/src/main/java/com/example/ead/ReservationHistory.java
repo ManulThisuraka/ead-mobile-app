@@ -128,7 +128,7 @@ public class ReservationHistory extends AppCompatActivity {
                             CreatedReservation.setStatus(jsonObject.getInt("status"));
                             getTrainScheduleDetails(jsonObject.getString("trainScheduleid"),CreatedReservation);
                         }
-                    } catch (JSONException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                         progressDialog.dismiss();
                     }

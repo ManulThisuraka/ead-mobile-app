@@ -87,6 +87,7 @@ public class SelectSchedule extends AppCompatActivity {
 
         HttpsTrustManager.allowAllSSL();
 
+        //volly request call
         String URL1 = Constants.BASE_URL + "/api/TrainSchedule/getAll";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 URL1, null, new Response.Listener<JSONObject>() {

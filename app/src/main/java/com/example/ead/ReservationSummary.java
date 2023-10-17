@@ -120,7 +120,7 @@ public class ReservationSummary extends AppCompatActivity {
 
             final String mRequestBody = jsonObject.toString();
             Log.d("First JSON", mRequestBody);
-
+        //volly request call
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
                 URL, jsonObject,
                 new Response.Listener<JSONObject>() {
